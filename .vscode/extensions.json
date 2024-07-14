@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "pkief.material-icon-theme",
+    "expo.vscode-expo-tools",
+    "dsznajder.es7-react-js-snippets",
+    "nativebase.nativebase-v3-vscode-extension",
+    "streetsidesoftware.code-spell-checker",
+    "streetsidesoftware.code-spell-checker-french",
+    "streetsidesoftware.code-spell-checker-french-reforme",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "yoavbls.pretty-ts-errors"
+  ]
+}
