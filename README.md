@@ -1,16 +1,29 @@
-# Welcome to your Expo app 👋
+# Welcome to Planify your project management app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Thhis is the frontend of your project management application, developed with [React Native](https://reactnative.dev) and [Expo](https://expo.dev). The backend of this application is available on GitHub at the following link: [Backend - mn.to-do-list](https://github.com/MN-Sandratra/mn.to-do-list).
 
 ## Get started
 
-1. Install dependencies
+### Prerequisites
+
+Ensure you have [Node.js](https://nodejs.org/) installed.
+
+### Installation
+
+1. Clone the repository
+
+   ```bash
+   git clone https://github.com/MN-Sandratra/Planify.git
+   cd YOUR-REPO-NAME
+   ```
+
+2. Install dependencies
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Start the app
 
    ```bash
     npx expo start
@@ -25,26 +38,10 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+## Backend
 
-When you're ready, run:
+The backend for this project is hosted separately. You can find the backend repository on GitHub:
 
-```bash
-npm run reset-project
-```
+- [Backend - mn.to-do-list](https://github.com/MN-Sandratra/mn.to-do-list)
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This backend provides the necessary APIs and database interactions required for the project management app to function.
