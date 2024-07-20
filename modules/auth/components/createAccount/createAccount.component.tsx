@@ -1,7 +1,10 @@
+import { createAccount } from "@/src/_slice/authentification/authentification.slice";
+import { createAccountModel } from "@/src/models/createAccount.model";
 import { useRouter } from "expo-router";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { useDispatch } from "react-redux";
 import AuthButton from "../../../../components/shared/authButton";
 import Input from "../../../../components/shared/input";
 import { appRoutes } from "../../../../routing/route.config";
@@ -9,6 +12,7 @@ import { Box, Text } from "../../../../utils/theme";
 
 export default function CreateAccountPage() {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const {
     control,
@@ -19,6 +23,7 @@ export default function CreateAccountPage() {
       username: "",
       email: "",
       password: "",
+      confirmedPassword: "",
     },
   });
 
@@ -26,9 +31,16 @@ export default function CreateAccountPage() {
     router.navigate(appRoutes.auth.root);
   };
 
-  const onSubmit = async (data: Omit<any, "name">) => {
-    const { name, email, password } = data;
-    console.log("valeur", email, password, name);
+  const onSubmit = async (data) => {
+    const { username, email, password } = data;
+    const newUser: createAccountModel = {
+      email: email,
+      password: password,
+      name: username,
+    };
+    dispatch(createAccount({ data: newUser }));
+
+    console.log("valeur", newUser);
   };
 
   return (
@@ -103,16 +115,16 @@ export default function CreateAccountPage() {
           }}
           render={({ field: { onChange, onBlur, value } }) => (
             <Input
-              label="Password"
+              label="Confirm Password"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
               placeholder="Confirm your password"
-              error={errors.password}
+              error={errors.confirmedPassword}
               secureTextEntry
             />
           )}
-          name="password"
+          name="confirmedPassword"
         />
         <Box mb="10" />
         <AuthButton

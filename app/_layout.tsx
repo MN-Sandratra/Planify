@@ -1,10 +1,17 @@
 import theme from "@/utils/theme";
+import { initAxios } from "@/utils/theme/axiosInterceptor.utils";
 import { ThemeProvider } from "@shopify/restyle";
-import { Stack } from "expo-router";
+import { Stack, useFocusEffect } from "expo-router";
+import { useCallback } from "react";
 import { Provider } from "react-redux";
 import { store } from "../store/store";
 
 export default function RootLayout() {
+  useFocusEffect(
+    useCallback(() => {
+      initAxios();
+    }, [])
+  );
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>

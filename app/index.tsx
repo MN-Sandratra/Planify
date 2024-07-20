@@ -5,5 +5,7 @@ import { authentificationSelector } from "../src/_slice/authentification/authent
 export default function Index() {
   const { isConnected } = useSelector(authentificationSelector);
 
-  return <Redirect href={isConnected ? "/categories" : appRoutes.auth.root} />;
+  return (
+    <Redirect href={isConnected ? appRoutes.tabs.home : appRoutes.auth.root} />
+  );
 }

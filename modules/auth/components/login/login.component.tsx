@@ -1,7 +1,10 @@
+import { authentificationSelector } from "@/src/_slice/authentification/authentification.selector";
+import { login } from "@/src/_slice/authentification/authentification.slice";
 import { useRouter } from "expo-router";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import AuthButton from "../../../../components/shared/authButton";
 import Input from "../../../../components/shared/input";
 import { appRoutes } from "../../../../routing/route.config";
@@ -9,6 +12,10 @@ import { Box, Text } from "../../../../utils/theme";
 
 export default function LoginPage() {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const { token, isLoading, isConnected } = useSelector(
+    authentificationSelector
+  );
 
   const {
     control,
@@ -20,10 +27,12 @@ export default function LoginPage() {
       password: "",
     },
   });
+  const onSuccessCallback = () => {
+    router.navigate(appRoutes.root);
+  };
 
-  const onSubmit = async (data: Omit<any, "name">) => {
-    const { email, password } = data;
-    console.log("valeur", email, password);
+  const onSubmit = async (data: { email: string; password: string }) => {
+    await dispatch(login({ data, onSuccessCallback }));
   };
 
   const navigateToSignUp = () => {
@@ -77,7 +86,12 @@ export default function LoginPage() {
           name="password"
         />
         <Box mb="10" />
-        <AuthButton label="Login" uppercase onPress={handleSubmit(onSubmit)} />
+        <AuthButton
+          label="Login"
+          uppercase
+          onPress={handleSubmit(onSubmit)}
+          disabled={isLoading}
+        />
         <Box mb="5.5" />
         <View style={styles.footer}>
           <Text>Don’t have an account?</Text>
