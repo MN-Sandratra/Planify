@@ -42,6 +42,6 @@ You can start developing by editing the files inside the **app** directory. This
 
 The backend for this project is hosted separately. You can find the backend repository on GitHub:
 
-- [Backend - mn.to-do-list](https://github.com/MN-Sandratra/mn.to-do-list)
+- [Backend - nestjs-planify](https://github.com/MN-Sandratra/mn.to-do-list)
 
 This backend provides the necessary APIs and database interactions required for the project management app to function.
